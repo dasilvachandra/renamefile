@@ -15,4 +15,4 @@ while (("$a" <= "$b" ));
         a=$[$a+1];
     done;
 mv .temp/* .
-rm .temp
+rm -r .temp
