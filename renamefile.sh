@@ -1,9 +1,9 @@
 a=1;
 b=$(ls | wc -l);
-firstname=$1;
+p=$1;
 mkdir .temp
-if [[ -z "$firstname" ]]; then
-    firstname="";
+if [[ -z "$p" ]]; then
+    p="";
 fi
 while (("$a" <= "$b" )); 
     do 
@@ -11,7 +11,7 @@ while (("$a" <= "$b" ));
         format=$(ls | tail -n $a | head -n 1| grep -Eoi [.]+.+);
         from="$(ls | sort | tail -n $a | head -n 1 )";
         to=$(ls -lt --time-style="+%Y-%m-%d_%H%M%S($a)"| grep "$from" | tail -n $a | head -n 1 | awk '{print $6}');
-        namefile=$firstname$to$format;
+        namefile=$to$p$format;
         if [[ -f $namefile ]]; then
             echo "$namefile exist"
             echo "rename file '$from' = $namefile";
